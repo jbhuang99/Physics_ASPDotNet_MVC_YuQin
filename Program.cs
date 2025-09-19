@@ -67,7 +67,7 @@ namespace WebEdu_LocalVersion_YuQin_DotNetCore2._1
          .UseIISIntegration()//将应用程序配置为在 IIS 中运行。上面已经讲过, 这里仍需要使用 UseKestrel, 而IIS 起到反向代理的作用，而 Kestrel 仍用作主机。如果应用程序没有使用 IIS 作为反向代理，那么 UseIISIntegration 不会有任何效果。因此，即使应用程序在非 IIS 方案中运行，也可以安全调用这种方法。
 
 #if DEBUG
-          .UseUrls("http://localhost:5300;https://localhost:5301;http://*:5300;https://*:5301")//指定Kestrel将侦听的URL。
+          .UseUrls("http://localhost:5500;https://localhost:5501;http://*:5300;https://*:5301")//指定Kestrel将侦听的URL。
 #else
           .UseUrls(urls)  //在此使用了条件编译以便代码的维护，debug或release时注释本文件的第一行代码，publish为SelfContained时则不注释。这是因为：VS中调式或不调试时，浏览器无法连接服务而正确不行；publish部署为self contained时可以！！！！！可能是防火墙阻止了服务的可访问性。改写为条件编译/环境编译？
 #endif          
@@ -296,8 +296,8 @@ namespace WebEdu_LocalVersion_YuQin_DotNetCore21
             WebApplicationBuilder webApplicationBuilder = WebApplication.CreateBuilder(webApplicationOptions);
             **/
             WebApplicationBuilder webApplicationBuilder = WebApplication.CreateBuilder(args);
-            //webApplicationBuilder.WebHost.UseUrls("http://localhost:5300;https://localhost:5301;http://*:5300;https://*:5301");//指定Kestrel将侦听的URL。
-            webApplicationBuilder.WebHost.UseUrls("http://localhost:5300;https://localhost:5301;http://*:5300;https://*:5301");//指定Kestrel将侦听的URL。可以设置在appsettings.json中，使用JIT编译的方式获取（在此选用）。也可以在代码中硬编码设置。也可以在命令行中指定参数。
+            //webApplicationBuilder.WebHost.UseUrls("http://localhost:5500;https://localhost:5501;http://*:5500;https://*:5501");//指定Kestrel将侦听的URL。
+            webApplicationBuilder.WebHost.UseUrls("http://localhost:5500;https://localhost:5501;http://*:5500;https://*:5501");//指定Kestrel将侦听的URL。可以设置在appsettings.json中，使用JIT编译的方式获取（在此选用）。也可以在代码中硬编码设置。也可以在命令行中指定参数。
             Console.WriteLine(webApplicationBuilder.Environment.WebRootPath);
  
               // Add services to the container.
