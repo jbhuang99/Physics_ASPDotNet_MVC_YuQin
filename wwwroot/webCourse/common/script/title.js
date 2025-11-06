@@ -73,6 +73,19 @@ var sHref=window.location.href.substring(0,window.location.href.indexOf("/webCou
 open(sHref,"_blank");    
 }
 
+function fnConnectServer(){
+//alert("需要连接服务端！");
+var sHref=prompt("请输入服务端的URL："
++"\r"+"（1）本机测试的服务端URL，例如：https://localhost:5091/"
++"\r"+"（2）公网的服务端URL，例如：https://www.yuqin99.com:5091/",
+"https://localhost:5091/");
+if (sHref== null||sHref=="") {
+    alert("您没有输入服务端的URL");
+} 
+else {
+    open(sHref,"winServer");
+}
+}
 /**
 
 function fnLoadJs(url, callback) {//动态添加js并即时调用.调用方式：JSfnLoadJs("test.js", function () {alert('done');});
@@ -906,7 +919,13 @@ function fnNotification(sStringTitle, sStringBody, sStringIcon) {  //不知为�
     }
 }
 
-function fnTTS_Play() {
+function fnTTS_Play(intCharBeginningNumber) {
+    try{
+         parent.document.getElementById("sIframeContents").contentWindow.winTTS_STT_LLM_AIGC_Robot_RAG_Agent_Copilot.document.getElementById("id_RadioSystemInternal").checked=true;
+        }
+    catch(e){;}
+    document.getElementById("id_TTS_GoToText").value=intCharBeginningNumber;
+   var sTemp="当前条目朗读已结束，随后将是下一条目的内容（您可以单击“标题框架”的“内容切换”，设置朗读课文或者作业测验）！";
     if(!("speechSynthesis" in window)) {
 		throw alert("对不起，您的浏览器不支持");
 		}
@@ -933,29 +952,47 @@ function fnTTS_Play() {
     **/  
          switch (true) {              
       case parent.document.getElementById("sFramesetContentAndHomeworkAndTest").rows=="0%,*":     
-            {const utterance = new SpeechSynthesisUtterance(parent.document.getElementById("sIframeHomeworkAndTest").contentWindow.document.body.textContent);
-
-             if(utterance==null||utterance==""){
-             window.speechSynthesis.speak("您好，当前条目的作业测验，没有字符自动朗诵");
+            {
+              var sTextContent = parent.document.getElementById("sIframeHomeworkAndTest").contentWindow.document.body.textContent;
+              document.getElementById("id_CharNumber").textContent=sTextContent.length;
+              var utterance="";
+              
+             if(sTextContent==null||sTextContent==""){
+            utterance ="您好，当前条目的作业测验，没有字符自动朗诵！"+sTemp;            
                  }
             else{
+            sTextContentBeginningNumber =sTextContent.substring(intCharBeginningNumber,sTextContent.length);
+             utterance = new SpeechSynthesisUtterance(sTextContentBeginningNumber+sTemp);
+            }
              window.speechSynthesis.speak(utterance);
-            }}
+             utterance.onend=fnTTSOnEnd;// 语音朗读结束时的回调;
+            }
             break;
       case parent.document.getElementById("sFramesetContentAndHomeworkAndTest").rows=="100%,*":
-            {const utterance = new SpeechSynthesisUtterance(parent.document.getElementById("sIframeContent").contentWindow.document.body.textContent);
-
-             if(utterance==null||utterance==""){
-             window.speechSynthesis.speak("您好，当前条目的课文，没有字符自动朗诵");
-                 }
+            {
+                var sTextContent = parent.document.getElementById("sIframeContent").contentWindow.document.body.textContent;
+                document.getElementById("id_CharNumber").textContent=sTextContent.length;
+                var utterance="";
+                
+             if(sTextContent ==null||sTextContent ==""){
+             utterance ="您好，当前条目的课文，没有字符自动朗诵！"+sTemp;
+                }
             else{
-             window.speechSynthesis.speak(utterance);
-            }}
+                sTextContentBeginningNumber =sTextContent.substring(intCharBeginningNumber,sTextContent.length);
+                utterance = new SpeechSynthesisUtterance(sTextContentBeginningNumber+sTemp);
+            }
+            window.speechSynthesis.speak(utterance);
+             utterance.onend=fnTTSOnEnd;
+            }
             break;
       default: 
       {
-          const utterance = new SpeechSynthesisUtterance('您好，请单击标题框架的"显示作业测验"设置作业测验或课文，占满内容框架，朗读相应的内容框架！');
-           window.speechSynthesis.speak(utterance);
+          var sTextContent = '您好，请单击“标题框架”的“内容切换”，设置作业测验或课文，占满内容框架，朗读相应的内容框架！';
+          document.getElementById("id_CharNumber").textContent=sTextContent.length;
+          sTextContentBeginningNumber =sTextContent.substring(intCharBeginningNumber,sTextContent.length);
+         var utterance = new SpeechSynthesisUtterance(sTextContentBeginningNumber+sTemp);
+          window.speechSynthesis.speak(utterance);
+           utterance.onend=fnTTSOnEnd;
              }
     } 
     /**
@@ -981,7 +1018,17 @@ function fnTTS_Cancel() {
     window.speechSynthesis.cancel();
 }
 
+function fnTTS_GoTo() {
+    window.speechSynthesis.cancel();
+    fnTTS_Play(document.getElementById("id_TTS_GoToText").value);
+}
 
+function fnTTSOnEnd(){
+window.speechSynthesis.cancel();
+//window.isRecognizingSystemInternal = false;
+//window.recognitionSystemInternal = null; 为了配合语音朗读TTS，所以fnSTTOnResultSystemInternal中的停止语音识别STT，但是因为还未能实现打断语音朗读，所以暂时放弃。
+ document.getElementById("next").click(); 
+    }
 // Usage
 
 /** function fnUploadBackgroundMusic(){

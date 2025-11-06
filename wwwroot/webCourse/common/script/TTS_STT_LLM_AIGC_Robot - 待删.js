@@ -3,31 +3,22 @@ window.speechSynthesis.cancel();  // 取消任何正在进行的TTS;
 //try{window.recognitionSystemInternal.stop();} catch(e){;}// 停止系统内部的语音识别
 //try{window.recognitionSystemExternal.stop();} catch(e){;}// 停止系统外部的语音识别
 window.sHref=window.location.href.substring(0,window.location.href.indexOf("/webCourse/"));
-
 window.systemInternalRecognizingResultFlag =""; // 系统内部语音识别结果标志
-window.systemExternalRecognizingResultFlag =""; // 系统内部语音识别结果标志
-
 window.recognitionSystemInternal = null; // STT的系统内部实例声明或清空；
 window.recognitionSystemExternal = null; // STT的系统外部实例声明或清空；
 
-
+//document.getElementById('btnSystemInternal').addEventListener("click", fnBtnSystemInternalOnClick, false);
+//document.getElementById('btnSystemExternal').addEventListener("click", fnBtnSystemExternalOnClick, false);
 document.getElementById('startBtnSystemInternal').addEventListener('click',fnStartBtnSystemInternalOnClick,false);          
 document.getElementById('stopBtnSystemInternal').addEventListener('click',fnStopBtnSystemInternalOnClick, false); 
 document.getElementById('startBtnSystemExternal').addEventListener('click',fnStartBtnSystemExternalOnClick,false);
 document.getElementById('stopBtnSystemExternal').addEventListener('click',fnStopBtnSystemExternalOnClick,false);
 //window.QwenAPIKey=""; // Qwen千问APIKey声明或清空；//目前无法实现相关功能。
 //document.getElementById('idQwenAPIKeyConfirm').addEventListener('click',fnidQwenAPIKeyConfirmOnClickSystemExternal,false);//目前无法实现相关功能。
+
+//document.getElementById('btnSystemInternal').disabled=true;
+//document.getElementById('btnSystemExternal').disabled=false;
 //document.getElementById('startBtnSystemInternal').click(); // 页面加载后自动点击开始系统内部的录音按钮
-
-if(document.getElementById("id_RadioSystemExternal").checked == true){
-var sTextContent = document.getElementById("transcriptSystemExternal").textContent;
-document.getElementById("id_CharNumber").textContent=sTextContent.length;
-}
-else{
-var sTextContent = document.getElementById("transcriptSystemInternal").textContent;
-document.getElementById("id_CharNumber").textContent=sTextContent.length;
-}
-
 }
 
 function fnOpenLocalhostDingTalkAIGC(){
@@ -54,14 +45,75 @@ function fnToggleEventSoureElementColor(){
     }
 }
 
+function fnAccuracySimilarityForPixelImage() {
+  //  if(opener.parent.document.getElementById("sIframeContents").contentWindow.fnRunningFrom().indexOf("免费")>=0)    {alert(opener.parent.document.getElementById("sIframeContents").contentWindow.fnRunningFrom());}
+
+fnToggleEventSoureElementColor();
+document.getElementById('sPixelImageFromAIGC').value=window.sHref+"/webCourse/options/Accuracy-Similarity/Cone-of-Experience-FromAIGC-willTransformToFiveLayeredMVC.jpg";
+document.getElementById('sShowPixelImageFromAIGC').src=window.sHref+"/webCourse/options/Accuracy-Similarity/Cone-of-Experience-FromAIGC-willTransformToFiveLayeredMVC.jpg";
+document.getElementById('sPixelImageFromKnowledgebase').value=window.sHref+"/webCourse/options/Accuracy-Similarity/Cone-of-Experience-FromKnowledgebase-willTransformToFiveLayeredMVC.jpg";
+document.getElementById('sShowPixelImageFromKnowledgebase').src=window.sHref+"/webCourse/options/Accuracy-Similarity/Cone-of-Experience-FromKnowledgebase-willTransformToFiveLayeredMVC.jpg";
+
+if(document.getElementById("AIGCPixelImage").style.display=="none"){
+    document.getElementById("AIGCPixelImage").style.display="block";
+    } 
+else{document.getElementById("AIGCPixelImage").style.display="none"} 
+}
+
+function fnAccuracySimilarityForVideo() {
+//if(opener.parent.document.getElementById("sIframeContents").contentWindow.fnRunningFrom().indexOf("免费")>=0) {alert(opener.parent.document.getElementById("sIframeContents").contentWindow.fnRunningFrom());}
+fnToggleEventSoureElementColor();
+document.getElementById('sVideoFromAIGC').value=window.sHref+"/webCourse/options/Accuracy-Similarity/EducationalTechnologyFromAIGC.mp4";
+document.getElementById('sShowVideoFromAIGC').src=window.sHref+"/webCourse/options/Accuracy-Similarity/EducationalTechnologyFromAIGC.mp4";
+document.getElementById('sVideoFromKnowledgebase').value=window.sHref+"/webCourse/options/Accuracy-Similarity/EducationalTechnologyFromKnowledgebase.mp4";
+document.getElementById('sShowVideoFromKnowledgebase').src=window.sHref+"/webCourse/options/Accuracy-Similarity/EducationalTechnologyFromKnowledgebase.mp4";
+
+if(document.getElementById("AIGCVideo").style.display=="none"){document.getElementById("AIGCVideo").style.display="block"} else{document.getElementById("AIGCVideo").style.display="none"}
+}
+
+function fnAccuracySimilarityFor2D() {
+//if(opener.parent.document.getElementById("sIframeContents").contentWindow.fnRunningFrom().indexOf("免费")>=0) {alert(opener.parent.document.getElementById("sIframeContents").contentWindow.fnRunningFrom());}
+fnToggleEventSoureElementColor();
+document.getElementById('s2DFromAIGC').value=window.sHref+"/webCourse/options/Accuracy-Similarity/EducationalTechnologyFromAIGC.svg";
+document.getElementById('sShow2DFromAIGC').src=window.sHref+"/webCourse/options/Accuracy-Similarity/EducationalTechnologyFromAIGC.svg";
+document.getElementById('s2DFromKnowledgebase').value=window.sHref+"/webCourse/options/Accuracy-Similarity/EducationalTechnologyFromKnowledgebase.svg";
+document.getElementById('sShow2DFromKnowledgebase').src=window.sHref+"/webCourse/options/Accuracy-Similarity/EducationalTechnologyFromKnowledgebase.svg";
+
+if(document.getElementById("AIGC2D").style.display=="none"){document.getElementById("AIGC2D").style.display="block"} else{document.getElementById("AIGC2D").style.display="none"}
+}
+
+function fnAccuracySimilarityFor3D() {
+//if(opener.parent.document.getElementById("sIframeContents").contentWindow.fnRunningFrom().indexOf("免费")>=0) {alert(opener.parent.document.getElementById("sIframeContents").contentWindow.fnRunningFrom());}
+fnToggleEventSoureElementColor();
+document.getElementById('s3DFromAIGC').value=window.sHref+"/webCourse/options/Accuracy-Similarity/EducationalTechnologyFromAIGC.x3dv";
+document.getElementById('sShow3DFromAIGC').src=window.sHref+"/webCourse/options/Accuracy-Similarity/EducationalTechnologyFromAIGC.x3dv";
+document.getElementById('s3DFromKnowledgebase').value=window.sHref+"/webCourse/options/Accuracy-Similarity/EducationalTechnologyFromKnowledgebase.x3dv";
+document.getElementById('sShow3DFromKnowledgebase').src=window.sHref+"/webCourse/options/Accuracy-Similarity/EducationalTechnologyFromKnowledgebase.x3dv";
+
+if(document.getElementById("AIGC3D").style.display=="none"){document.getElementById("AIGC3D").style.display="block"} else{document.getElementById("AIGC3D").style.display="none"}
+}
+
+function fnAccuracySimilarityForAudio() {
+//if(opener.parent.document.getElementById("sIframeContents").contentWindow.fnRunningFrom().indexOf("免费")>=0) {alert(opener.parent.document.getElementById("sIframeContents").contentWindow.fnRunningFrom());}
+fnToggleEventSoureElementColor();
+document.getElementById('sAudioFromAIGC').value=window.sHref+"/webCourse/options/Accuracy-Similarity/EducationalTechnologyFromAIGC.m4a";
+document.getElementById('sShowAudioFromAIGC').src=window.sHref+"/webCourse/options/Accuracy-Similarity/EducationalTechnologyFromAIGC.m4a";
+document.getElementById('sAudioFromKnowledgebase').value=window.sHref+"/webCourse/options/Accuracy-Similarity/EducationalTechnologyFromKnowledgebase.m4a";
+document.getElementById('sShowAudioFromKnowledgebase').src=window.sHref+"/webCourse/options/Accuracy-Similarity/EducationalTechnologyFromKnowledgebase.m4a";
+if(document.getElementById("AIGCAudio").style.display=="none"){document.getElementById("AIGCAudio").style.display="block"} else{document.getElementById("AIGCAudio").style.display="none"}
+}
+
+
 /**
+function fnOpenSystemExternalAIGC(){
+    open("https://chat.baidu.com/search","SystemExternalAIGC");
+}
+**/
 function fnBtnSystemInternalOnClick() {
                 window.speechSynthesis.cancel();  // 取消任何正在进行的TTS;
                 //window.recognitionSystemInternal = null; // STT的系统内部实例声明或清空；
                 window.recognitionSystemExternal = null; // STT的系统外部实例声明或清空；
-               // window.isRecognizingSystemInternal = true;//不知是否需要设置；
-               // window.isRecognizingSystemExternal = false;//不知是否需要设置；
-                //window.QwenAPIKey=""; // Qwen千问APIKey声明或清空；暂时无法实现相关功能。
+                //window.QwenAPIKey=""; // Qwen千问APIKey声明或清空；
                 document.getElementById('btnSystemInternal').disabled=true;
                 document.getElementById('btnSystemExternal').disabled=false;
                 document.getElementById('startBtnSystemInternal').disabled=false;
@@ -75,9 +127,7 @@ function fnBtnSystemExternalOnClick() {
                window.speechSynthesis.cancel();  // 取消任何正在进行的TTS;
                 window.recognitionSystemInternal = null; // STT的系统内部实例声明或清空；
                // window.recognitionSystemExternal = null; // STT的系统外部实例声明或清空；
-               // window.isRecognizingSystemInternal = false;//不知是否需要清空；
-               // window.isRecognizingSystemExternal = true;//不知是否需要设置；
-                //window.QwenAPIKey=""; // Qwen千问APIKey声明或清空；暂时无法实现相关功能。
+                //window.QwenAPIKey=""; // Qwen千问APIKey声明或清空；
                 document.getElementById('btnSystemExternal').disabled=true;
                 document.getElementById('btnSystemInternal').disabled=false;
                 document.getElementById('startBtnSystemInternal').disabled=true;
@@ -86,92 +136,31 @@ function fnBtnSystemExternalOnClick() {
                 document.getElementById('stopBtnSystemExternal').disabled=true; 
                 document.getElementById('startBtnSystemExternal').click();
  }
- **/
 
  function fnTTSOnEndSystemInternal(){
-window.speechSynthesis.cancel();
-const utteranceInternal ="您的Prompt指令是“"+document.getElementById("idPromptDirective").value+"”对吗？请关注系统内部主界面视图中的结果！"; //在此可以无需朗读。
-document.getElementById('transcriptSystemInternal').textContent =utteranceInternal;
-//window.isRecognizingSystemInternal = false;
-//window.recognitionSystemInternal = null; 为了配合语音朗读TTS，所以fnSTTOnResultSystemInternal中的停止语音识别STT，但是因为还未能实现打断语音朗读，所以暂时放弃。
 switch (true) {
-case window.systemInternalRecognizingResultFlag =="外部": {
-   document.getElementById('startBtnSystemExternal').click(); //切换到系统外部语音对话，即，开始系统外部录音Prompt指令。已经退出系统内部录音Prompt子系统。
-   //语音提示用户已经切换到系统外部语音对话，已经退出系统内部录音Prompt子系统；
-    break;
-}
-
-case window.systemExternalRecognizingResultFlag =="停止录音": {
-   document.getElementById('stopBtnSystemInternal').click(); 
-   //语音提示用户停止系统内部录音Prompt指令；   
-    break;
-}
 case window.systemInternalRecognizingResultFlag =="向上": {
-    //opener.parent.document.getElementById("sIFrameTitle").contentWindow.document.getElementById("id_TTS").style.display="none";//为了配合语音朗读TTS，所以fnSTTOnResultSystemInternal中的停止语音识别STT，但是因为还未能实现打断语音朗读，所以暂时放弃。
-   //opener.parent.document.getElementById("sIFrameTitle").contentWindow.document.getElementById("id_TTS").style.display="none";  
-  opener.parent.document.getElementById("sIFrameTitle").contentWindow.document.getElementById("id_TTS").disabled = true;
    opener.parent.document.getElementById("sIFrameTitle").contentWindow.document.getElementById("previous").click();    
-   //增加内容框架的朗读功能。
     break;
 }
 case window.systemInternalRecognizingResultFlag =="向下": {
-  // opener.parent.document.getElementById("sIFrameTitle").contentWindow.document.getElementById("id_TTS").style.display="none";//为了配合语音朗读TTS，所以fnSTTOnResultSystemInternal中的停止语音识别STT，但是因为还未能实现打断语音朗读，所以暂时放弃。
-  // opener.parent.document.getElementById("sIFrameTitle").contentWindow.document.getElementById("id_TTS").style.display="none";
-  opener.parent.document.getElementById("sIFrameTitle").contentWindow.document.getElementById("id_TTS").disabled = true;
    opener.parent.document.getElementById("sIFrameTitle").contentWindow.document.getElementById("next").click();
-   //增加内容框架的朗读功能。
     break;
     }
 default:{
-    alert("语音识别没有准确匹配的，默认打开滚动消息，以供了解最新咨询！");//修改成为TTS语音提示
+    alert("语音识别没有准确匹配的，默认打开滚动消息，以供了解最新咨询！");
     opener.fnMarquee();
     }
 }
- document.getElementById('stopBtnSystemInternal').click();//如果包含语音朗读TTS，需要放置在onend回调中，否则会导致无法朗读AIGC回答Answer。
- //document.getElementById('startBtnSystemInternal').click();//如果包含语音朗读TTS，需要放置在onend回调中，否则会导致无法朗读AIGC回答Answer。
+ document.getElementById('stopBtnSystemInternal').click();
+ document.getElementById('startBtnSystemInternal').click();
     }
 
 
  function fnTTSOnEndSystemExternal(){
- window.speechSynthesis.cancel();
-//window.isRecognizingSystemExternal = false;
-//window.recognitionSystemExternal = null; 为了配合语音朗读TTS，所以fnSTTOnResultSystemExternal中的停止语音识别STT，但是因为还未能实现打断语音朗读，所以暂时放弃。
- switch (true) {
-case window.systemExternalRecognizingResultFlag =="内部": {
-   document.getElementById('startBtnSystemInternal').click(); //切换到系统内部语音对话，即，开始系统内部录音Prompt指令。已经退出系统外部录音Prompt子系统。
-   //语音提示这是一个内部Prompt指令，而非Prompt提问，用户已经切换到系统内部语音对话，并且准备就绪录音Prompt指令；   
-    break;
-}
-case window.systemExternalRecognizingResultFlag =="停止录音": {
-   document.getElementById('stopBtnSystemExternal').click(); 
-   //语音提示这是一个内部Prompt指令，而非Prompt提问，用户停止系统外部录音Prompt指令；   
-    break;
-}
-
-case window.systemExternalRecognizingResultFlag =="开始": {
-  // 语音提示这是一个内部Prompt指令，而非Prompt提问，语音AIGC回答Answer的TTS语音朗读的从头开始指令。
-    break;
-    }
-case window.systemExternalRecognizingResultFlag =="暂停": {
-   //语音提示这是一个内部Prompt指令，而非Prompt提问， AIGC回答Answer的TTS语音朗读的暂停指令。
-    break;
-    }
-case window.systemExternalRecognizingResultFlag =="继续": {
-  //语音提示这是一个内部Prompt指令，而非Prompt提问， AIGC回答Answer的TTS语音朗读的继续恢复指令。
-    break;
-    }
-case window.systemExternalRecognizingResultFlag =="结束": {
-  // 语音提示这是一个内部Prompt指令，而非Prompt提问，AIGC回答Answer的TTS语音朗读的结束指令。
-    break;
-    }
-default:{
-    //AIGC回答Answer的默认朗读的指令;  
-    // document.getElementById('idPrompt').value=window.transcriptSystemExternal;
-      document.getElementById('idButtonAjaxServerSideCallAIGCAnswerCharactor').click();//TTS/STT的时候，可以调用初创方函数，无法调用自创方函数，不知为什么。可能是需要使用onend回调。
-    }
-}
- document.getElementById('stopBtnSystemExternal').click();//如果包含语音朗读TTS，需要放置在onend回调中，否则会导致无法朗读AIGC回答Answer。
- //document.getElementById('startBtnSystemExternal').click();//如果包含语音朗读TTS，需要放置在onend回调中，否则会导致无法朗读AIGC回答Answer。
+ opener.parent.document.getElementById("sIFrameContents").contentWindow.fnMargee();
+ document.getElementById('stopBtnSystemExternal').click();
+ document.getElementById('startBtnSystemExternal').click();
     }
 
 function fnStartBtnSystemInternalOnClick() {
@@ -192,6 +181,7 @@ function fnStartBtnSystemInternalOnClick() {
 
     window.recognitionSystemInternal.onstart =fnSTTOnStartSystemInternal; // 语音识别开始时的回调            
     window.recognitionSystemInternal.onerror=fnSTTOnErrorSystemInternal; //// 语音识别出错时的回调(event)参数不知是否正确传递了。            
+    //window.recognitionSystemInternal.onend=fnSTTOnEndSystemInternal;// 语音识别结束时的回调
     window.recognitionSystemInternal.onresult=fnSTTOnResultSystemInternal;//(event)参数不知是否正确传递了。
     window.recognitionSystemInternal.onend=fnSTTOnEndSystemInternal;// 语音识别结束时的回调
 
@@ -208,7 +198,7 @@ function fnStartBtnSystemExternalOnClick() {
     window.speechSynthesis.cancel();
     try{window.recognitionSystemInternal.stop();}catch(e){;}// 停止系统内部的语音识别
     if(window.QwenAPIKey==""){
-        alert("您可能还没输入并确认您的Qwen千问APIKey！");//该部分欲实现客户端浏览器中密码登录方式提供AIGC的APIKey，调用AIGC的功能，当前AIGC声明因为APIKey容易泄露的原因，一般不支持，故此功能暂时无法实现。
+        alert("您可能还没输入并确认您的Qwen千问APIKey！");
                 }
     else{
      document.getElementById('startBtnSystemInternal').disabled=false; 
@@ -227,8 +217,8 @@ function fnStartBtnSystemExternalOnClick() {
 
     window.recognitionSystemExternal.onstart =fnSTTOnStartSystemExternal; // 语音识别开始时的回调            
     window.recognitionSystemExternal.onerror=fnSTTOnErrorSystemExternal; // 语音识别出错时的回调(event)参数不知是否正确传递了。            
-    window.recognitionSystemExternal.onresult=fnSTTOnResultSystemExternal;//(event)参数不知是否正确传递了。
     window.recognitionSystemExternal.onend=fnSTTOnEndSystemExternal;// 语音识别结束时的回调
+    window.recognitionSystemExternal.onresult=fnSTTOnResultSystemExternal;//(event)参数不知是否正确传递了。
 
     document.getElementById('transcriptSystemExternal').innerText='"段落": []'; // 清空显示区域
     window.speechContentParagraphsSystemExternal = { paragraphs: [] }; // 重置识别内容
@@ -262,11 +252,10 @@ function fnStopBtnSystemInternalOnClick() {
     }
 
 function fnStopBtnSystemExternalOnClick() {
-     //document.getElementById("idPrompt").value="";
      document.getElementById('transcriptSystemInternal').innerText= '"段落": []'; // 清空显示区域
     window.speechSynthesis.cancel();  // 取消任何正在进行的TTS;
     window.recognitionSystemExternal.stop();
-    try{window.recognitionSystemExternal.stop();}catch(e){;}// 停止系统内部的语音识别
+    try{window.recognitionSystemInternal.stop();}catch(e){;}// 停止系统内部的语音识别
     /** 
     if (window.recognitionSystemExternal && window.isRecognizingSystemExternal) {
                     window.recognitionSystemExternal.stop(); // 停止语音识别
@@ -309,21 +298,13 @@ function fnSTTOnStartSystemInternal() {
 function fnSTTOnStartSystemExternal() {
     window.isRecognizingSystemExternal = true;
        }
-
 function fnSTTOnEndSystemInternal() {
     window.isRecognizingSystemInternal = false;
     window.speechSynthesis.cancel();
-    document.getElementById("idPromptDirective").value=window.transcriptSystemInternal;
     //TTS
-    const utteranceInternal = new SpeechSynthesisUtterance("您的Prompt指令是“"+window.transcriptSystemInternal+"”对吗？请关注系统主界面视图中的结果！"); 
-    document.getElementById('transcriptSystemInternal').textContent ="您的Prompt指令是“"+window.transcriptSystemInternal+"”对吗？请关注系统主界面视图中的结果！";
+    const utteranceInternal = new SpeechSynthesisUtterance("您需要"+window.transcriptSystemInternal+"对吗？"); 
      window.speechSynthesis.speak(utteranceInternal); 
     switch (true) {
-case window.transcriptSystemInternal.indexOf("外部")>=0: {
-    window.systemInternalRecognizingResultFlag ="外部"; 
-    utteranceInternal.onend=fnTTSOnEndSystemInternal;// 语音朗读结束时的回调;
-    break;
-}
 case window.transcriptSystemInternal.indexOf("向上")>=0: {
     window.systemInternalRecognizingResultFlag ="向上"; 
     utteranceInternal.onend=fnTTSOnEndSystemInternal;// 语音朗读结束时的回调;
@@ -339,50 +320,23 @@ default:{
     utteranceInternal.onend=fnTTSOnEndSystemInternal;// 语音朗读结束时的回调;
     }
 }
-}
+ }
 
 function fnSTTOnEndSystemExternal() {
     window.isRecognizingSystemExternal = false;
      window.speechSynthesis.cancel(); 
-       //TTS  
-    document.getElementById("idPrompt").value=window.transcriptSystemExternal;
-    const utteranceExternal = new SpeechSynthesisUtterance("您的Prompt提问是“"+window.transcriptSystemExternal+"”对吗？"); 
+       //TTS      
+    const utteranceExternal = new SpeechSynthesisUtterance("您需要"+window.transcriptSystemExternal+"对吗？"); 
     window.speechSynthesis.speak(utteranceExternal);  
-     switch (true) {
-    case window.transcriptSystemExternal.indexOf("内部")>=0: {
-    window.systemExternalRecognizingResultFlag ="内部"; 
-    utteranceExternal.onend=fnTTSOnEndSystemExternal;// 语音朗读结束时的回调;
-    break;
+    //utteranceExternal.onend=fnOnEndSTTOnEndUtteranceExternal;// 语音朗读结束时的回调;
+     document.getElementById('idPrompt').value=window.transcriptSystemExternal;
+     document.getElementById('idButtonAjaxServerSideCallAIGCAnswerCharactor').click();//TTS/STT的时候，可以调用初创方函数，无法调用自创方函数，不知为什么。可能是需要使用onend回调。
+    // fnAjaxServerSideCallAIGCAnswerCharactor();//TTS/STT的时候，可以调用初创方函数，无法调用自创方函数，不知为什么。可能是需要使用onend回调。
+    //utteranceExternal.onend=fnTTSOnEndSystemExternal;// 语音朗读结束时的回调;     
     }
-    case window.transcriptSystemExternal.indexOf("开始")>=0: {
-    window.systemExternalRecognizingResultFlag ="开始"; 
-    utteranceExternal.onend=fnTTSOnEndSystemExternal;// 语音朗读结束时的回调;
-    break;
-    }
-    case window.transcriptSystemExternal.indexOf("暂停")>=0: {
-    window.systemExternalRecognizingResultFlag ="暂停"; 
-    utteranceExternal.onend=fnTTSOnEndSystemExternal;// 语音朗读结束时的回调;
-    break;
-    }
-    case window.transcriptSystemExternal.indexOf("继续")>=0: {
-    window.systemExternalRecognizingResultFlag ="继续"; 
-    utteranceExternal.onend=fnTTSOnEndSystemExternal;// 语音朗读结束时的回调;
-    break;
-    }
-    case window.transcriptSystemExternal.indexOf("停止")>=0: {
-    window.systemExternalRecognizingResultFlag ="停止"; 
-    utteranceExternal.onend=fnTTSOnEndSystemExternal;// 语音朗读结束时的回调;
-    break;
-    }
-    default:{
-    window.systemInternalRecognizingResultFlag ="default"; 
-    utteranceExternal.onend=fnTTSOnEndSystemExternal;// 语音朗读结束时的回调;
-    }
-}     
-}
 
    function fnOnEndSTTOnEndUtteranceExternal() {
-      window.isRecognizingSystemExternal = true;
+      window.isRecognizingSystemExternal = ture;
      window.speechSynthesis.cancel(); 
        }
 
@@ -458,15 +412,13 @@ document.getElementById('transcriptSystemExternal').textContent = JSON.stringify
 
 function fnAjaxServerSideCallAIGCAnswerCharactor() {
     fnToggleEventSoureElementColor();
-    window.isRecognizingSystemExternal = false;
-     window.speechSynthesis.cancel(); 
             var sPrompt = document.getElementById("idPrompt").value;
              window.speechSynthesis.cancel();
                      //TTS
-             const utteranceExternalPrompt = new SpeechSynthesisUtterance("您的Prompt提问是“"+sPrompt+"”对吗？语音对话机器人正在思考回答Answer，请耐心等候..."); 
+             const utteranceExternalPrompt = new SpeechSynthesisUtterance("您的Prompt是"+sPrompt+"对吗？语音对话机器人正在思考回答Answer，请耐心等候..."); 
              window.speechSynthesis.speak(utteranceExternalPrompt); 
-            alert("您的Prompt提问是：“" + sPrompt+"”对吗？语音对话机器人正在思考回答Answer，请耐心等候...");
-             document.getElementById("transcriptSystemExternal").innerHTML ="这里将呈现本系统的服务端访问外部的他创方的AIGC，实现语音对话机器人的回答Answer并且TTS朗读。语音对话机器人正在思考回答Answer，请耐心等候...";
+            alert("您的Prompt是：" + sPrompt+"对吗？语音对话机器人正在思考回答Answer，请耐心等候...");
+             document.getElementById("transcriptSystemExternal").innerHTML ="这里将呈现本系统的服务端访问他创方的AIGC，实现语音对话机器人的回答Answer并且TTS朗读。语音对话机器人正在思考回答Answer，请耐心等候...";
             var sURL = "/QWen/index?queryString=" + sPrompt;
             // var sURL = "https://localhost:5001/QWen/index?queryString=" + sSearchedKeywords;
            // open(sURL, "ServerSideCallAIGCAnswerCharactor");
@@ -481,19 +433,12 @@ function fnAjaxServerSideCallAIGCAnswerCharactor() {
                         //如果函数存在的话执行
                         var oTemp=JSON.parse(xmlHttpRequest.responseText);
                         document.getElementById("transcriptSystemExternal").innerHTML ="语音对话机器人的回答Answer是："+oTemp.output.text;
-                      
                         window.speechSynthesis.cancel();
-                          /**
                      //TTS
                      const utteranceExternalAIGCAnswer = new SpeechSynthesisUtterance("语音对话机器人的回答Answer是"+oTemp.output.text); 
-                     if(document.getElementById("id_TTS").disabled==false){
                      window.speechSynthesis.speak(utteranceExternalAIGCAnswer);
                      utteranceExternalAIGCAnswer.onend=fnTTSOnEndSystemExternalAIGCAnswer;
-                     **/
-                   // document.getElementById("id_TTS_Play").click();
-                   fnTTS_Play(0);
-                     }
-                    
+                    }
                     else {
                         var sTempErr ='出错了,错误编号是：'+xmlHttpRequest.status+xmlHttpRequest.responseText;
                         alert(sTempErr);
@@ -504,9 +449,9 @@ function fnAjaxServerSideCallAIGCAnswerCharactor() {
                     }
                 }
         }
-}
+        }
 
-function fnTTSOnEndSystemExternalAIGCAnswer(){
+        function fnTTSOnEndSystemExternalAIGCAnswer(){
             //alert("语音对话机器人的回答Answer已经结束朗读，请您继续对话！");
             window.speechSynthesis.cancel();
             const utteranceTTSOnEndSystemExternalAIGCAnswer = new SpeechSynthesisUtterance("语音对话机器人的回答Answer已经结束朗读，请您继续对话！"); 
@@ -514,66 +459,11 @@ function fnTTSOnEndSystemExternalAIGCAnswer(){
             utteranceTTSOnEndSystemExternalAIGCAnswer.onend=fnTTSOnEndSystemExternalUtteranceTTSOnEndSystemExternalAIGCAnswer;
             //window.speechSynthesis.cancel();
         }
-function fnTTSOnEndSystemExternalUtteranceTTSOnEndSystemExternalAIGCAnswer(){
+        function fnTTSOnEndSystemExternalUtteranceTTSOnEndSystemExternalAIGCAnswer(){
             document.getElementById('stopBtnSystemExternal').click(); 
             document.getElementById('startBtnSystemExternal').click(); 
             //window.speechSynthesis.cancel();
         }
-
-function fnTTS_Play(intCharBeginningNumber) {
-    document.getElementById("transcriptSystemExternal").style.color="brown";
-    document.getElementById('stopBtnSystemExternal').click(); 
-    document.getElementById("id_RadioSystemExternal").checked=true;
-  //  if(document.getElementById("id_RadioSystemExternal").checked == true) {
-        
-    document.getElementById("id_TTS_GoToText").value=intCharBeginningNumber;
-    
-   var sTemp="当前AIGC回答Answer朗读已结束，请继续Prompt提问AIGC！";
-    if(!("speechSynthesis" in window)) {
-		throw alert("对不起，您的浏览器不支持");
-		}
-        window.speechSynthesis.cancel();
-       //var sTextContent = JSON.stringify(document.getElementById("transcriptSystemExternal").textContent);
-       var sTextContent = document.getElementById("transcriptSystemExternal").textContent;
-       document.getElementById("id_CharNumber").textContent=sTextContent.length;
-       
-              var utterance="";              
-             if(sTextContent==null||sTextContent==""){
-            utterance ="您好，当前AIGC回答Answer，没有字符自动朗诵！"+sTemp;            
-                 }
-            else{
-            sTextContentBeginningNumber =sTextContent.substring(intCharBeginningNumber,sTextContent.length);
-             utterance = new SpeechSynthesisUtterance(sTextContentBeginningNumber+sTemp);
-            }
-             window.speechSynthesis.speak(utterance);
-             //utterance.onend=fnTTSOnEnd;// 语音朗读结束时的回调;
-             utterance.onend=fnTTSOnEndSystemExternalAIGCAnswer;
-           // }
-    
-}
-
-function fnTTS_Pause() {
-    window.speechSynthesis.pause();
-}
-
-function fnTTS_Resume() {
-    window.speechSynthesis.resume();
-}
-
-function fnTTS_Cancel() {
-    window.speechSynthesis.cancel();
-}
-
-function fnTTS_GoTo() {
-    window.speechSynthesis.cancel();
-    fnTTS_Play(document.getElementById("id_TTS_GoToText").value);
-}
-
-function fnTTSOnEnd(){
-window.speechSynthesis.cancel();
-//window.isRecognizingSystemInternal = false;
-//window.recognitionSystemInternal = null; 为了配合语音朗读TTS，所以fnSTTOnResultSystemInternal中的停止语音识别STT，但是因为还未能实现打断语音朗读，所以暂时放弃。
-    }
 /**AIGC官方声明：因为API Key容易泄露等等安全问题，所以当前不支持JS访问千问AIGC。
  *
  function fnidQwenAPIKeyConfirmOnClickSystemExternal(){
