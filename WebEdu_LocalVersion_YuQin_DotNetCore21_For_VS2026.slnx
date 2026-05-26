@@ -1,0 +1,64 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Debug" />
+    <BuildType Name="Development" />
+    <BuildType Name="Release" />
+  </Configurations>
+  <Folder Name="/About-Architecture_DDD_Tests_(CleanArchitecture-MVCArchitecture)_Microsoft_eShopOnWeb(Examples)/">
+    <File Path="About-Architecture_DDD_Tests(CleanArchitecture-MVCArchitecture)_Microsoft_eShopOnWeb(Examples)/ReadMe.txt" />
+  </Folder>
+  <Folder Name="/ASPDotNet_MVC_YuQin/">
+    <Project Path="ASPDotNet_MVC_YuQin/ASPDotNet_MVC_YuQin/ASPDotNet_MVC_YuQin.csproj">
+      <BuildType Solution="Development|*" Project="Release" />
+    </Project>
+  </Folder>
+  <Folder Name="/ASPDotNet_MVC_YuQin/ASPDotNet_MVC_YuQin-OneOfThreeViews_BuildWithOneBlazorAssemblyProject--TwoOfThreeViews_BuildInFoldersIn[ASPDotNet_Mvc_Yuqin]Project/">
+    <File Path="ASPDotNet_MVC_YuQin/OneOfThreeViews_BuildWithOneBlazorAssemblyProjectTypeInstance[Blazor_WebAssembly_PWA_YuQin]--TwoOfThreeViews_BuildInFoldersInASP.NetMVCProjectTypeInstance[ASPDotNet_Mvc_Yuqin]/ReadMe.txt" />
+    <Project Path="ASPDotNet_MVC_YuQin/Blazor_WebAssembly_PWA_YuQin/Blazor_WebAssembly_PWA_YuQin.csproj">
+      <BuildType Solution="Development|*" Project="Release" />
+    </Project>
+  </Folder>
+  <Folder Name="/ASPDotNet_MVC_YuQin/SharedCS/">
+    <Project Path="ASPDotNet_MVC_YuQin/SharedCS/SharedCS/SharedCS.csproj">
+      <BuildType Solution="Development|*" Project="Release" />
+    </Project>
+  </Folder>
+  <Folder Name="/ASPDotNet_MVC_YuQin/SharedRazor_SharedCSHTML/">
+    <Project Path="ASPDotNet_MVC_YuQin/SharedRazor_SharedCSHTML/SharedRazorClassLibrary/SharedRazorCS.csproj">
+      <BuildType Solution="Development|*" Project="Release" />
+    </Project>
+  </Folder>
+  <Folder Name="/ASPDotNet_MVC_YuQin/VS-SSDT_SS/">
+    <File Path="ASPDotNet_MVC_YuQin/About_VS_SSDT_SS/About_VS_SSDT_SS.txt" />
+  </Folder>
+  <Folder Name="/ASPDotNet_MVC_YuQin/VS-SSDT_SS/Layer1_SSDE_Database_DatawareHouse_SSIS/">
+    <Project Path="ASPDotNet_MVC_YuQin/About_VS_SSDT_SS/Layer1/TryDatabase/TryDatabase/TryDatabase.sqlproj" Id="4a6bf7b9-f1bd-4fa6-89a3-bc0fed54aa46">
+      <BuildType Solution="Development|*" Project="Release" />
+      <Build />
+      <Deploy />
+    </Project>
+    <Project Path="ASPDotNet_MVC_YuQin/About_VS_SSDT_SS/Layer1/TryDatawarehouse/DatawareHouse/DatawareHouse.sqlproj" Id="0444f2a2-642b-437a-ab33-c3e253cada1d">
+      <BuildType Solution="Development|*" Project="Release" />
+      <Build />
+      <Deploy />
+    </Project>
+    <Project Path="ASPDotNet_MVC_YuQin/About_VS_SSDT_SS/Layer1/TrySSIS/TrySSIS/TrySSIS.dtproj" Type="c9674dcb-5085-4a16-b785-4c70dd1589bd">
+      <BuildType Project="Development" />
+      <Platform Project="?" />
+    </Project>
+  </Folder>
+  <Folder Name="/ASPDotNet_MVC_YuQin/VS-SSDT_SS/Layer2_Layer3_Layer4_SSAS_MDA_DMA_DMAC/">
+    <Project Path="ASPDotNet_MVC_YuQin/About_VS_SSDT_SS/Layer2_Layer3_Layer4/TrySSAS_MDX_DMX_DMXA/TrySSAS_MDX_DMX_DMXA.dwproj" Type="d2abab84-bf74-430a-b69e-9dc6d40dda17">
+      <BuildType Project="Development" />
+      <Platform Project="?" />
+      <Deploy />
+    </Project>
+  </Folder>
+  <Folder Name="/ASPDotNet_MVC_YuQin/VS-SSDT_SS/Layer5_SSAIGC/" />
+  <Folder Name="/ReadMe-DevelopingTimeRunningThisSolution-开发时运行这个解决方案的说明-请用Word读写该HTML文件/">
+    <File Path="OpenClaw-Skills-文档.md" />
+    <File Path="ReadMe-DevelopingTimeRunningThisSolution.htm" />
+    <File Path="ReadMe-DevelopingTimeRunningThisSolution.md" />
+  </Folder>
+  <Folder Name="/Workspace-Skills-其中的MD文件必须是UTF8编码不能是Ansi编码否则GitHub网站部署会出错-虽然内置嵌套CS项目但是好像也能放置于wwwroot文件夹之下/" />
+</Solution>

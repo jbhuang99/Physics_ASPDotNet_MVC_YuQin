@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="../common/script/content.js"></script>
+    <script src="../common/script/Popup.js"></script>
+    <link rel="stylesheet" type="text/css" href="content.css" />
+    <title>新建网页 1</title>
+</head>
+
+<body onload="fnOnLoad();">
+
+    <table style="width:100%;height:100%;border:0" id="table1">
+        <tr>
+            <td align="center">
+                <p>如果正使用手机，请设置横屏！</p>
+                <p><a href="https://github.com/jbhuang99/WebEdu_LocalVersion_YuQin_DotNetCore2.1" target="_blank">本软件框架的源码链接：https://github.com/jbhuang99/WebEdu_LocalVersion_YuQin_DotNetCore2.1</a></p>
+                <p>QQ：43930878；EMail：43930878@qq.com</p>
+                <img border="0" src="contentStart.jpg" style="width:100%;height:100%" />
+                <div style="color:brown">【重要提醒：手机浏览时，目前没有支持鼠标悬停功能，此时许多界面提示无法查看！】</div>
+                <p><a href="https://yuqin99yuqin99.github.io/WebEdu_LocalVersion_YuQin_DotNetCore21/ASPDotNet_MVC_YuQin/ASPDotNet_MVC_YuQin/wwwroot/webCourse/common/initial.html?text=1676365271966" target="_blank">（具体学科思维语言的人-物对象的）“字典驱动文档”原理</a>、<a href="https://yuqin99yuqin99.github.io/WebEdu_LocalVersion_YuQin_DotNetCore21/ASPDotNet_MVC_YuQin/ASPDotNet_MVC_YuQin/wwwroot/webCourse/common/initial.html?text=1676365357375" target="_blank">（多个学科思维语言的人-物对象的）“字典”链接</a></p>
+                <p><a href="https://yuqin99yuqin99.github.io/WebEdu_LocalVersion_YuQin_DotNetCore21/ASPDotNet_MVC_YuQin/ASPDotNet_MVC_YuQin/wwwroot/webCourse/common/initial.html?text=1707232519335" target="_blank">（具体学科思维语言的人-物对象的）“工具继承利用/工具创新研发”</a></p>
+            </td>
+        </tr>
+    </table>
+    <!--右键菜单开始 -->
+
+    <div id="popupDiv" onclick="fnPopupClosePopup();" oncontextmenu="fnPopupContextMenu();" style="position:fixed;z-Index:1000;margin: 2px; border: 1px;   overflow:visible;  font-size: 11px; cursor: default;display:none;">
+        <div style="position: relative;" onmouseover="fnPopupMouseOver();" onmouseout="fnPopupMouseOut();">
+            <div title='刷新标题面板' onclick="location.reload();">刷新</div>
+            <div title='转到服务版' onclick='parent.document.getElementById("sIFrameTitle").contentWindow.document.getElementById("sGoServer").click();'>服务版</div>
+            <div title='单击将内容框架和目录框架的放缩还原为默认' onclick="parent.parent.frames.item('sIFrameTitle').document.getElementById('sDefaultZoom').click();">默认放缩</div>
+            <div title='单击将内容框架和目录框架的宽度还原为默认' onclick="parent.parent.frames.item('sIFrameTitle').document.getElementById('sDefaultWidth').click();">默认宽度</div>
+            <div title='按历史记录往前翻页' onclick="parent.parent.frames.item('sIFrameTitle').document.getElementById('sForword').click();">前进</div>
+            <div title='按历史记录往后翻页' onclick="parent.parent.frames.item('sIFrameTitle').document.getElementById('sBackword').click();">后退</div>
+            <div title='按目录中的条目往下翻页' onclick="parent.parent.frames.item('sIFrameTitle').document.getElementById('next').click();">下翻</div>
+            <div title='按目录中的条目往上翻页' onclick="parent.parent.frames.item('sIFrameTitle').document.getElementById('previous').click();">上翻</div>
+            <div title='在是否全屏显示内容之间切换' onclick='parent.fnToggleScreen();'>内容全屏切换</div>
+            <div title='在内容框架中查找' onclick='parent.findContent()'>查找(在当前框架)</div>
+            <div title='切换是否显示滚动条'  onclick='parent.fnToggleScrollBar();' id="sToggleScrollBar">滚动条切换</div>
+            <div title='打开帮助' onclick='parent.document.getElementById("sIFrameTitle").contentWindow.document.getElementById("help").click();'>&#169;帮助</div>
+        </div>
+    </div>
+    <!--右键菜单结束-->
+
+</body>
+
+</html>
+
